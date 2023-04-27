@@ -8,6 +8,7 @@ include ("Header.php");
 	if(isset($_POST['return_book'])) {
 		$book_title = $_POST['book_title'];
 		$sql = "UPDATE users_tab SET my_books = REPLACE(REPLACE(my_books, '$book_title,', ''), '$book_title', '') WHERE userid = '$user'";
+		echo $sql;
 		$result = $connect->query($sql);
 		if ($result) {
 			$sql2 = "UPDATE books SET availability_status = 'Available' WHERE book_title = '$book_title'";
@@ -39,7 +40,8 @@ if ($result->num_rows > 0) {
   // Buscar los libros en la tabla "books"
   foreach ($book_titles as $book_title) {
     $book_title = trim($book_title); // eliminar espacios en blanco al inicio y al final
-    $sql2 = "SELECT * FROM books WHERE book_title = '$book_title'";
+		$book_title = str_replace("'", "''", $book_title); // apostrophes need to be sanatized for the SQL query
+    $sql2 = "SELECT * FROM books WHERE book_title = '" . $book_title . "'";
     $result2 = $connect->query($sql2);
 
     // Imprimir la información del libro encontrado
@@ -53,19 +55,19 @@ if ($result->num_rows > 0) {
       echo "<p><b>Year:</b> " . $row2['year_of_release'] . "</p>";
       echo "<p><b>Price:</b> $" . $row2['price'] . "</p>";
       echo "<p><b>Description:</b> " . $row2['information'] . "</p>";
-	  echo "<form method='post'>";
-      echo "<input type='hidden' name='book_title' value='$book_title'>";
+			echo "<form method='post'>";
+      echo "<input type='hidden' name='book_title' value=\"$book_title\">";
       echo "<input type='submit' name='return_book' value='Regresar libro'>";
       echo "</form>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
-	  echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
+			echo "<br>";
     } 	
 
   }

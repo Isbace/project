@@ -20,7 +20,7 @@
 		$sql = "SELECT * FROM books WHERE id = $book_id";
 		$result = $connect->query($sql);
 		$row = $result->fetch_assoc();
-
+		
 		echo "<img src='" . $row['cover_img'] . "' style='float: left; margin-right: 20px;' width='350' height='450'>";
 		echo "<h2>" . $row['book_title'] . "</h2>";
 		echo "<p><b>Author:</b> " . $row['author'] . "</p>";
@@ -33,7 +33,7 @@
 		
 		echo "<form id='add-to-cart-form' method='POST'>";
 		echo "<input type='hidden' name='id' value='" . $id . "'>";
-		echo "<input type='hidden' name='book_title' value='" . $row['book_title'] . "'>";
+		echo "<input type='hidden' name='book_title' value=\"" . $row['book_title'] . "\">";
 		echo "<input type='hidden' name='price' value='" . $row['price'] . "'>";
 		echo "<label for='date_of_lending'>Date of lending:</label>";
 		echo "<input type='date' id='date_of_lending' name='date_of_lending' required>";
@@ -51,12 +51,13 @@
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 			$book_id = $_POST['id'];
-			$book_title = $_POST['book_title'];
+			// apostrophes need to be sanatized for the SQL query
+			$book_title = str_replace("'", "''", $_POST['book_title']);
 			$date_of_lending = $_POST['date_of_lending'];
 			$date_of_return = $_POST['date_of_return'];
 			$remarks = $_POST['remarks'];
 			$status = $_POST['status'];
-
+			
 			$sql = "SELECT availability_status FROM books WHERE id = '$book_id'";
 			$result = $connect->query($sql);
 			$row = $result->fetch_assoc();
