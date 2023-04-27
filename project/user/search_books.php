@@ -7,7 +7,7 @@
 <html>
 	<body style="background-color:#FFF8DC;">
 		<?php
-			$var = $_POST['searchbar'];
+			$var = str_replace("'", "''", $_POST['searchbar']);
 			$new_var = "%".$var."%";
 			$sql = "SELECT * FROM books WHERE book_title LIKE '$new_var' OR author LIKE '$new_var'";
 			echo $sql; // Imprime la consulta SQL
