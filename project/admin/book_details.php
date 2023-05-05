@@ -45,7 +45,7 @@
 		echo "<input type='text' id='status' name='status'";
 		echo "<br>";
 
-		echo "<button type='submit'>Agregar al carrito</button>";
+		echo "<button type='submit'>Borrow book</button>";
 		echo "</form>";
 
 		if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -73,12 +73,12 @@
 				$result = $connect->query($sql);
 
 				if ($result) {
-					echo "<p>El libro ha sido añadido al carrito.</p>";
+					echo "<p>The book has been added to your books.</p>";
 				} else {
-					echo "<p>Ha habido un error al añadir el libro al carrito.</p>";
+					echo "<p>There was an error adding the book.</p>";
 				}
 			} else {
-				echo "<p>Lo siento, este libro ya ha sido prestado.</p>";
+				echo "<p>Sorry, this book has already been checked out.</p>";
 			}
 
 		}

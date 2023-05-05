@@ -7,23 +7,41 @@ $user=($_SESSION['userid']);
 <body>
 
 <div>
-  <h1>Right Aligned</h1>
-  <a href="#"><button> Submit </button></a>
+  <h1>Users</h1>
+  <a href="users.php"><button style="background-color: #8C6057;"> Go to next page </button></a>
   <br />
 </div>
 <hr />
-<div class="left">
-  <h1>Left Aligned</h1>
-  <a href="#" class="btn">Submit <span class="arrow">❯</span></a>
+<div>
+  <h1>Books</h1>
+    <a href="books.php"><button style="background-color: #8C6057;"> Go to next page </button></a>
   <br />
 </div>
 <hr />
-<div class="center">
-  <h1>Center Aligned</h1>
-  <a href="#" class="btn">Submit <span class="arrow">❯</span></a>
+<div>
+  <h1> Add/Change/Delete Users </h1>
+  <a href="users_options.php"><button style="background-color: #8C6057;"> Go to next page </button></a>
   <br />
 </div>
 
-
+<hr />
+<div>
+  <h1> Add/Change/Delete Books </h1>
+  <a href="books_options.php"><button style="background-color: #8C6057;"> Go to next page </button></a>
+  <br />
+</div>
+<hr />
+<div>
+  <h1> Track Books </h1>
+  <a href="track_books.php"><button style="background-color: #8C6057;"> Go to next page </button></a>
+  <br />
+</div>
+<hr />
+<div>
+  <h1> User Interface </h1>
+  <a href="user_interface.php"><button style="background-color: #8C6057;"> Go to next page </button></a>
+  <br />
+</div>
+<hr />
 </html>
 </body>

@@ -2,7 +2,7 @@
 session_start();
 if(($_SESSION['role'] !="U"))
 {
-echo "You are trying to access a BAD Page. <a href='login.php' >Login Again</a> ";
+echo "You are trying to access a BAD Page. <a href='../login.php' >Login Again</a> ";
 session_destroy();
 
 }

@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
       echo "<p><b>Description:</b> " . $row2['information'] . "</p>";
 	  echo "<form method='post'>";
       echo "<input type='hidden' name='book_title' value='$book_title'>";
-      echo "<input type='submit' name='return_book' value='Regresar libro'>";
+      echo "<input type='submit' name='return_book' value='Retun Book'>";
       echo "</form>";
 	  echo "<br>";
 	  echo "<br>";

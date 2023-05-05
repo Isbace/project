@@ -11,12 +11,11 @@ include("Header.php");
 $var = $_POST['searchbar'];
 $new_var = "%".$var."%";
 $sql = "SELECT * FROM books WHERE book_title LIKE '$new_var' OR author LIKE '$new_var'";
-echo $sql; // Imprime la consulta SQL
 $result = $connect->query($sql);
-$row = $result->fetch_assoc();
+
 
 if ($result->num_rows > 0) {
-  while ($row = $result->fetch_assoc()) {
+	while ($row = $result->fetch_assoc()) {
 	echo "<a href='book_details.php?id=".$row['sid']."'>";
     echo "<img src='" . $row['cover_img'] . "' style='float: left; margin-right: 20px;' width='350' height='450'>";
     echo "<h2>" . $row['book_title'] . "</h2></a>";
